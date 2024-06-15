@@ -1,0 +1,28 @@
+directories:
+  buildResources: buildResources
+  output: dist
+extraResources: ["tools", "firmwares", "libraryes"]
+
+appId: "com.ottawastem.scratch-arduino-link"
+productName: "Swecha Arduino Link"
+publish: # empty provider list = don't publish
+
+fileAssociations:
+  ext: sba
+  name: Swecha Arduino Project File
+  role: Editor
+  icon: buildResources/scratch-arduino-file.ico
+
+win:
+  icon: buildResources/scratch-arduino-link.ico
+  target:
+    - nsis
+
+nsis:
+  perMachine: false
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  artifactName: "Swecha-Arduino-Link-Win-v${version}.${ext}"
+  deleteAppDataOnUninstall: true
+  createDesktopShortcut: true
+  include: buildResources/installer.nsh

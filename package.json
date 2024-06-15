@@ -1,0 +1,57 @@
+{
+  "name": "swecha-arduino-link",
+  "version": "1.0.0",
+  "description": "Porvide local hardware function to scratch-arduino",
+  "main": "src/main.js",
+  "scripts": {
+    "clean": "rimraf dist tools libraries firmwares",
+    "fetch": "npm run clean && node script/download-tools.js && node script/download-libraries.js && node script/download-firmwares.js",
+    "build-win": "npm run fetch && electron-builder --config electron-builder-win.yml",
+    "build-mac": "npm run fetch && electron-builder --config electron-builder-mac.yml",
+    "build-linux": "npm run fetch && electron-builder --config electron-builder-linux.yml",
+    "start": "electron .",
+    "docs": "jsdoc -c .jsdoc.json",
+    "test": "node script/test.js",
+    "lint": "eslint ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ottawastem/scratch-arduino-link.git"
+  },
+  "keywords": [
+    "scratch",
+    "link",
+    "arduino",
+    "nodejs",
+    "scratch3.0",
+    "serialport"
+  ],
+  "author": "Ottawa STEM Club",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ottawastem/scratch-arduino-link/issues"
+  },
+  "homepage": "https://github.com/ottawastem/scratch-arduino-link#readme",
+  "dependencies": {
+    "ansi-string": "^0.2.1",
+    "compare-versions": "^3.6.0",
+    "del": "^6.0.0",
+    "download-github-release": "^0.3.2",
+    "electron-update-notifier": "^1.3.1",
+    "install": "^0.13.0",
+    "js-yaml": "^4.0.0",
+    "load-json-file": "^6.2.0",
+    "remote-git-tags": "^3.0.0",
+    "serialport": "^9.2.0",
+    "ws": "^7.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "cpy-cli": "^3.1.1",
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7",
+    "eslint": "^5.3.0",
+    "jsdoc": "^3.6.6",
+    "rimraf": "^3.0.2"
+  }
+}

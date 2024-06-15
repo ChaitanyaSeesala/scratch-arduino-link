@@ -1,0 +1,34 @@
+directories:
+  buildResources: buildResources
+  output: dist
+extraResources: ["tools", "firmwares", "libraryes"]
+
+appId: "com.ottawastem.scratch-arduino-link"
+productName: "Swecha Arduino Link"
+npmRebuild: false
+publish: # empty provider list = don't publish
+
+fileAssociations:
+  ext: sba
+  name: Scratch Arduino Project File
+  role: Editor
+  icon: buildResources/scratch-arduino-file.icns
+
+mac:
+  category: public.app-category.education
+  entitlements: buildResources/entitlements.mac.plist
+  extendInfo:
+    NSCameraUsageDescription: >-
+        This app requires camera access when taking a photo in the paint editor or using the video sensing blocks.
+    NSMicrophoneUsageDescription: >-
+        This app requires microphone access when recording sounds or detecting loudness.
+  gatekeeperAssess: true
+  hardenedRuntime: true
+  icon: buildResources/scratch-arduino-link.icns
+  provisioningProfile: embedded.provisionprofile
+  artifactName: "Scratch-Arduino-Link-Mac-v${version}.${ext}"
+  target:
+    - dmg
+
+dmg:
+  title: "Scratch-Arduino-Link-MacOS-v${version}"

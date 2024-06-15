@@ -1,0 +1,55 @@
+directories:
+  buildResources: buildResources
+  output: dist
+extraResources:
+  - tools
+  - firmwares
+  - libraries # Corrected from 'libraryes' to 'libraries'
+
+appId: "com.ottawastem.scratch-arduino-link"
+productName: "Swecha Arduino Link"
+publish: # empty provider list = don't publish
+
+fileAssociations:
+  - ext: sba
+    name: Scratch Arduino Project File
+    role: Editor
+    icon: buildResources/scratch-arduino-file.ico
+
+linux:
+  icon: buildResources/scratch-arduino-link.png
+  target:
+    - appImage # Corrected from 'appimage' to 'appImage'
+    - deb
+    - rpm
+  category: Development
+  artifactName: "Swecha-Arduino-Link-Linux-v${version}.${ext}"
+  synopsis: "Swecha Arduino Link" # Added these fields under the linux target
+  description: "Provide local hardware function to Scratch-Arduino"
+  maintainer: "Swecha Organization"
+
+deb:
+  synopsis: "Swecha Arduino Link"
+  description: "Provide local hardware function to Scratch-Arduino"
+  maintainer: "Ottawa STEM Club <your-email@example.com>"
+  compression: "xz"
+  depends:
+    - gconf2
+    - gconf-service
+    - libnotify4
+    - libappindicator1
+    - libxtst6
+    - libnss3
+    - libxss1
+    - libasound2
+
+rpm:
+  synopsis: "Swecha Arduino Link"
+  description: "Provide local hardware function to Scratch-Arduino"
+  maintainer: "Swecha Organization"
+  compression: "xz"
+  depends:
+    - libnotify
+    - libXScrnSaver
+    - nss
+    - alsa-lib
